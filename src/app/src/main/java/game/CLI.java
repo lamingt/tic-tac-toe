@@ -50,9 +50,13 @@ public class CLI {
             } else {
                 System.out.print("Enter your move: ");
                 String[] input = scanner.nextLine().split(" ");
+                if (input.length != 2) {
+                    System.out.println("Error: Invalid move.");
+                    continue;
+                }
+
                 int row = Integer.valueOf(input[0]) - 1;
                 int col = Integer.valueOf(input[1]) - 1;
-
                 if (row < 0 || row > 2 || col < 0 || col > 2 || !board.isEmpty(row, col)) {
                     System.out.println("Error: Invalid move.");
                     continue;
